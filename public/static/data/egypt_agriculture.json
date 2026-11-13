@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "title": "Egypt agricultural reference context (governorate-level)",
+    "version": "1.0.0",
+    "updated": "2026-11-12",
+    "scope": "Egypt-focused MVP. Regional synthesis for orientation only; not a farm soil test, not a crop prescription, and not validated for every district.",
+    "disclaimer": "Dominant crops and soil/water descriptions are regional generalisations compiled from public country-level sources and general Egyptian extension knowledge. They must be verified with the governorate agricultural directorate and a laboratory soil test before decisions. No yield or profit claim is made.",
+    "sources": [
+      {
+        "name": "FAO AQUASTAT — Egypt country profile",
+        "url": "https://www.fao.org/aquastat/en/databases/countries/egy",
+        "used_for": "Irrigation context, Nile dependence, drainage and salinity context"
+      },
+      {
+        "name": "FAO GIEWS — Egypt country brief",
+        "url": "https://www.fao.org/giews/countrybrief/country.jsp?code=EGY",
+        "used_for": "National cropping patterns and cereal importance"
+      },
+      {
+        "name": "USDA Foreign Agricultural Service — Egypt",
+        "url": "https://www.fas.usda.gov/countries/egypt",
+        "used_for": "National crop area and production context"
+      },
+      {
+        "name": "Egypt Ministry of Agriculture and Land Reclamation",
+        "url": "https://www.moa.gov.eg/",
+        "used_for": "Official extension and governorate-level guidance (verify locally)"
+      },
+      {
+        "name": "FAO Crop Calendar",
+        "url": "https://cropcalendar.app/",
+        "used_for": "General planting and harvest windows"
+      }
+    ]
+  },
+  "regions": {
+    "nile_valley": {
+      "label": "Upper/Middle Nile Valley",
+      "soil_summary": "Deep Nile alluvial soils, often clayey to silty, with high water-holding capacity. Calcareous patches, salinity and waterlogging can occur where drainage is poor.",
+      "water_context": "Almost entirely irrigated from the Nile system; conjunctive groundwater use in some areas. Irrigation efficiency and drainage are major constraints.",
+      "rotation_note": "Winter cereals and berseem clover commonly alternate with summer maize, sorghum, cotton or vegetables. Sugarcane is important in the southern governorates."
+    },
+    "delta": {
+      "label": "Nile Delta and northern coast",
+      "soil_summary": "Alluvial Delta soils ranging from clay to loam, with sandy coastal fringes. High water tables, salinity and drainage problems are common in the north.",
+      "water_context": "Irrigated from the Nile Delta barrages and canals; rice cultivation is concentrated in the northern Delta. Drainage and salinity management are critical.",
+      "rotation_note": "Rice, cotton, maize, wheat, berseem and vegetables dominate, with sugar beet expanding in some areas."
+    },
+    "canal": {
+      "label": "Suez Canal and Ismailia zone",
+      "soil_summary": "Sandy to sandy-loam desert fringe soils with low organic matter and limited water-holding capacity; localized salinity.",
+      "water_context": "Irrigated from canal systems and groundwater; water scarcity and salinity are significant constraints.",
+      "rotation_note": "Vegetables, cereals and fodder under irrigation; wind erosion and low organic matter are common concerns."
+    },
+    "desert_oases": {
+      "label": "Western Desert oases and New Valley",
+      "soil_summary": "Sandy and calcareous desert soils, often low in organic matter, with salinity risk under irrigation. Soil variability is high.",
+      "water_context": "Dependent on groundwater and reclaimed desert irrigation; overdraft and salinization are key risks.",
+      "rotation_note": "Wheat, maize, fodder, dates, olives and citrus in oases; wind erosion and low soil organic matter are common."
+    },
+    "mediterranean": {
+      "label": "Mediterranean rainfed coast (Matrouh)",
+      "soil_summary": "Shallow, stony calcareous soils with low organic matter. Rainfed agriculture is constrained by highly variable winter rainfall.",
+      "water_context": "Mainly rainfed with supplementary water harvesting; drought risk is high.",
+      "rotation_note": "Barley, olives, figs and limited legumes; cover and residue retention are important for erosion control."
+    },
+    "sinai": {
+      "label": "Sinai",
+      "soil_summary": "Sandy and stony desert soils with low organic matter; salinity and water scarcity vary sharply by location.",
+      "water_context": "Local wells, springs and water harvesting; irrigation is limited and salinity risk is significant.",
+      "rotation_note": "Barley, olives, dates and irrigated vegetables; protection from wind erosion is important."
+    },
+    "red_sea": {
+      "label": "Red Sea coastal desert",
+      "soil_summary": "Arid, stony and sandy soils with very low organic matter; agriculture is restricted to local oases and wadis.",
+      "water_context": "Very limited groundwater and sporadic runoff; irrigation is highly localized.",
+      "rotation_note": "Limited dates, fodder and vegetables where water permits; regional crop rules are weakly validated."
+    }
+  },
+  "governorates": {
+    "Alexandria": {
+      "region": "delta",
+      "dominant_crops": ["wheat", "rice", "cotton", "maize", "berseem", "tomato", "sugar_beet"],
+      "soil_summary": "Delta alluvial and coastal sandy soils; salinity and drainage problems near the coast.",
+      "water_context": "Nile canal irrigation with coastal salinity risks.",
+      "confidence": "regional synthesis"
+    },
+    "Aswan": {
+      "region": "nile_valley",
+      "dominant_crops": ["sugarcane", "wheat", "maize", "faba_bean", "sorghum", "onion"],
+      "soil_summary": "Nile alluvial and desert-fringe sandy soils; very hot, hyper-arid climate.",
+      "water_context": "Irrigated from the Nile and Lake Nasser system; high evaporative demand.",
+      "confidence": "regional synthesis"
+    },
+    "Asyut": {
+      "region": "nile_valley",
+      "dominant_crops": ["wheat", "maize", "sorghum", "cotton", "berseem", "faba_bean", "sugarcane"],
+      "soil_summary": "Deep Nile alluvial soils, often clayey; drainage and salinity can vary locally.",
+      "water_context": "Nile irrigation; heat and waterlogging risks in poorly drained land.",
+      "confidence": "regional synthesis"
+    },
+    "Beheira": {
+      "region": "delta",
+      "dominant_crops": ["wheat", "rice", "cotton", "sugar_beet", "maize", "tomato", "berseem"],
+      "soil_summary": "Delta alluvial soils with sandy and calcareous areas; salinity and water-table issues in the north.",
+      "water_context": "Nile canal irrigation and drainage networks; salinity management is important.",
+      "confidence": "regional synthesis"
+    },
+    "Beni Suef": {
+      "region": "nile_valley",
+      "dominant_crops": ["wheat", "maize", "cotton", "berseem", "sorghum", "faba_bean"],
+      "soil_summary": "Nile alluvial soils with clayey and calcareous patches.",
+      "water_context": "Nile irrigation; localized drainage constraints.",
+      "confidence": "regional synthesis"
+    },
+    "Cairo": {
+      "region": "delta",
+      "dominant_crops": ["wheat", "berseem", "maize", "tomato"],
+      "soil_summary": "Urban fringe and Delta-edge alluvial soils; agriculture is highly fragmented.",
+      "water_context": "Canal irrigation and treated water use; urban pressure is dominant.",
+      "confidence": "regional synthesis; limited agricultural area"
+    },
+    "Dakahlia": {
+      "region": "delta",
+      "dominant_crops": ["rice", "cotton", "wheat", "maize", "berseem", "tomato"],
+      "soil_summary": "Fertile Delta alluvial soils, mostly clayey to loamy; drainage varies.",
+      "water_context": "Nile canal irrigation; rice is water-intensive in this governorate.",
+      "confidence": "regional synthesis"
+    },
+    "Damietta": {
+      "region": "delta",
+      "dominant_crops": ["rice", "wheat", "maize", "berseem", "tomato"],
+      "soil_summary": "Northern Delta alluvial and coastal soils; high water table and salinity risk.",
+      "water_context": "Nile canal and drainage water; coastal salinity intrusion is a concern.",
+      "confidence": "regional synthesis"
+    },
+    "Faiyum": {
+      "region": "nile_valley",
+      "dominant_crops": ["wheat", "maize", "cotton", "berseem", "tomato", "olive"],
+      "soil_summary": "Alluvial and lacustrine soils in the Faiyum depression; salinity and drainage vary.",
+      "water_context": "Irrigated from the Nile via the Bahr Yusuf canal; drainage to Lake Qarun.",
+      "confidence": "regional synthesis"
+    },
+    "Gharbiyya": {
+      "region": "delta",
+      "dominant_crops": ["rice", "cotton", "maize", "wheat", "berseem", "tomato"],
+      "soil_summary": "Central Delta alluvial soils, generally fertile and clayey to loamy.",
+      "water_context": "Nile canal irrigation; drainage and water-table management matter.",
+      "confidence": "regional synthesis"
+    },
+    "Giza": {
+      "region": "nile_valley",
+      "dominant_crops": ["wheat", "maize", "berseem", "tomato", "faba_bean", "citrus"],
+      "soil_summary": "Nile alluvial and desert-fringe sandy soils; high urban pressure.",
+      "water_context": "Nile canal irrigation and groundwater; reclaimed desert areas are common.",
+      "confidence": "regional synthesis"
+    },
+    "Ismailia": {
+      "region": "canal",
+      "dominant_crops": ["wheat", "maize", "tomato", "citrus", "berseem", "groundnut"],
+      "soil_summary": "Sandy to loamy desert-fringe soils; low organic matter and salinity risk.",
+      "water_context": "Canal and groundwater irrigation; water scarcity is a constraint.",
+      "confidence": "regional synthesis"
+    },
+    "Kafr el-Sheikh": {
+      "region": "delta",
+      "dominant_crops": ["rice", "cotton", "sugar_beet", "wheat", "maize", "berseem"],
+      "soil_summary": "Northern Delta clayey alluvial soils; high water table, salinity and drainage challenges.",
+      "water_context": "Nile canal irrigation; rice dominates in wetter northern areas.",
+      "confidence": "regional synthesis"
+    },
+    "Luxor": {
+      "region": "nile_valley",
+      "dominant_crops": ["sugarcane", "wheat", "maize", "faba_bean", "sorghum", "tomato"],
+      "soil_summary": "Nile alluvial soils in a narrow cultivated strip; hot, dry climate.",
+      "water_context": "Nile irrigation with high evaporative demand.",
+      "confidence": "regional synthesis"
+    },
+    "Matrouh": {
+      "region": "mediterranean",
+      "dominant_crops": ["barley", "olive", "fig", "lentil", "faba_bean"],
+      "soil_summary": "Shallow calcareous and stony soils; low organic matter and high erosion risk.",
+      "water_context": "Rainfed with water harvesting; highly variable rainfall.",
+      "confidence": "regional synthesis"
+    },
+    "Minya": {
+      "region": "nile_valley",
+      "dominant_crops": ["wheat", "maize", "cotton", "berseem", "sorghum", "faba_bean", "sugarcane"],
+      "soil_summary": "Nile alluvial soils, often clayey; calcareous and sandy patches on the desert fringe.",
+      "water_context": "Nile irrigation; heat and drainage are important constraints.",
+      "confidence": "regional synthesis"
+    },
+    "Monufia": {
+      "region": "delta",
+      "dominant_crops": ["wheat", "maize", "cotton", "berseem", "tomato", "rice"],
+      "soil_summary": "Central Delta alluvial soils; generally fertile with localized drainage issues.",
+      "water_context": "Nile canal irrigation.",
+      "confidence": "regional synthesis"
+    },
+    "New Valley": {
+      "region": "desert_oases",
+      "dominant_crops": ["wheat", "maize", "berseem", "date_palm", "olive", "citrus"],
+      "soil_summary": "Sandy and calcareous desert soils; low organic matter and salinity risk under irrigation.",
+      "water_context": "Groundwater-fed oasis agriculture; overdraft and salinization are key risks.",
+      "confidence": "regional synthesis; local variability is high"
+    },
+    "North Sinai": {
+      "region": "sinai",
+      "dominant_crops": ["barley", "olive", "date_palm", "tomato", "faba_bean"],
+      "soil_summary": "Sandy and stony desert soils; low organic matter and variable salinity.",
+      "water_context": "Wells, springs and water harvesting; water scarcity is severe.",
+      "confidence": "regional synthesis; local variability is high"
+    },
+    "Port Said": {
+      "region": "delta",
+      "dominant_crops": ["rice", "wheat", "tomato", "berseem"],
+      "soil_summary": "Coastal Delta soils with high water table and salinity risk; limited agricultural area.",
+      "water_context": "Canal irrigation with coastal salinity intrusion.",
+      "confidence": "regional synthesis; limited agricultural area"
+    },
+    "Qalyubia": {
+      "region": "delta",
+      "dominant_crops": ["wheat", "maize", "berseem", "tomato", "rice"],
+      "soil_summary": "Southern Delta alluvial soils; fertile but under strong urban pressure.",
+      "water_context": "Nile canal irrigation.",
+      "confidence": "regional synthesis"
+    },
+    "Qena": {
+      "region": "nile_valley",
+      "dominant_crops": ["sugarcane", "wheat", "maize", "sorghum", "faba_bean", "onion"],
+      "soil_summary": "Nile alluvial soils in a narrow valley; hot and dry.",
+      "water_context": "Nile irrigation; high evaporative demand and drainage constraints.",
+      "confidence": "regional synthesis"
+    },
+    "Red Sea": {
+      "region": "red_sea",
+      "dominant_crops": ["date_palm", "berseem", "tomato"],
+      "soil_summary": "Arid stony and sandy soils; very low organic matter.",
+      "water_context": "Very limited groundwater and runoff; agriculture is highly localized.",
+      "confidence": "regional synthesis; sparse local validation"
+    },
+    "Al Sharqia": {
+      "region": "delta",
+      "dominant_crops": ["wheat", "maize", "cotton", "berseem", "tomato", "citrus"],
+      "soil_summary": "Eastern Delta alluvial soils with sandy desert-fringe areas; salinity varies.",
+      "water_context": "Nile canal irrigation; reclaimed desert areas depend on groundwater and canal extensions.",
+      "confidence": "regional synthesis"
+    },
+    "Sohag": {
+      "region": "nile_valley",
+      "dominant_crops": ["wheat", "maize", "sorghum", "cotton", "berseem", "faba_bean", "sugarcane"],
+      "soil_summary": "Deep Nile alluvial soils, often clayey to silty, with calcareous patches and localized salinity where drainage is poor.",
+      "water_context": "Irrigated from the Nile; high evaporative demand and drainage management are important.",
+      "confidence": "regional synthesis; pilot governorate",
+      "pilot_note": "Sohag is the pilot region. The application's crop and scoring assumptions are most exercised here."
+    },
+    "South Sinai": {
+      "region": "sinai",
+      "dominant_crops": ["olive", "date_palm", "barley", "tomato"],
+      "soil_summary": "Mountainous and stony desert soils; very low organic matter, localized salinity.",
+      "water_context": "Springs, wells and water harvesting; extremely limited water.",
+      "confidence": "regional synthesis; sparse local validation"
+    },
+    "Suez": {
+      "region": "canal",
+      "dominant_crops": ["tomato", "wheat", "maize", "berseem"],
+      "soil_summary": "Sandy desert-fringe soils; low organic matter and salinity risk.",
+      "water_context": "Canal and groundwater irrigation; limited water availability.",
+      "confidence": "regional synthesis"
+    }
+  }
+}

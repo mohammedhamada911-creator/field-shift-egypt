@@ -1,0 +1,325 @@
+{
+  "phase1": {
+    "latest": "08 Nov 2026",
+    "completeness": "94.9%",
+    "temp": "28.5",
+    "rain": "0.03",
+    "solar": "23.04",
+    "gaps": "5.1",
+    "qualityRows": 8,
+    "source": "NASA POWER \u2014 Daily Point API (Agroclimatology)",
+    "period": "15 Aug 2026 \u2192 08 Nov 2026",
+    "errorVisible": false,
+    "risk": {
+      "badge": "High overall",
+      "confidence": "high screening confidence \u00b7 94.9% data coverage",
+      "cards": [
+        {
+          "title": "Heat stress",
+          "severity": "High",
+          "value": "52days \u2265 35 \u00b0C",
+          "observed": "52 of 86 valid days (60%) reached at least 35 \u00b0C; 18 reached at least 40 \u00b0C.",
+          "threshold": "Threshold: High: \u226530% of valid days reach 35 \u00b0C, or \u22653 days reach 40 \u00b0C. Watch: \u226510% of days reach 35 \u00b0C, or \u22651 day reaches 40 \u00b0C."
+        },
+        {
+          "title": "Dry spell",
+          "severity": "High",
+          "value": "86days < 1 mm",
+          "observed": "86 of 86 valid days (100%) had less than 1 mm of precipitation.",
+          "threshold": "Threshold: High: \u226590% of valid days below 1 mm (with at least 7 days), or a run of \u226530 days. Watch: \u226560% of days, or a run of \u226514 days."
+        },
+        {
+          "title": "Heavy-rain days",
+          "severity": "Low",
+          "value": "0days \u2265 10 mm",
+          "observed": "0 of 86 valid days reached at least 10 mm; the largest daily total was 0.0 mm on 02 Oct 2026.",
+          "threshold": "Threshold: High: \u22653 days at or above 10 mm. Watch: \u22651 such day."
+        },
+        {
+          "title": "Strong-wind days",
+          "severity": "Low",
+          "value": "0days \u2265 6 m/s",
+          "observed": "0 of 86 valid days (0%) reached at least 6 m/s (about 22 km/h) at 2 m.",
+          "threshold": "Threshold: High: \u226520% of valid days. Watch: \u22655% of valid days."
+        },
+        {
+          "title": "Low-humidity days",
+          "severity": "Low",
+          "value": "5days < 20%",
+          "observed": "5 of 86 valid days (6%) had mean relative humidity below 20%.",
+          "threshold": "Threshold: High: \u226530% of valid days. Watch: \u226510% of valid days."
+        }
+      ],
+      "note": "HIGH: Heat stress, Dry spell. Calculated from 90 requested day(s), not a forecast. Calculated screening indicator, not an official alert, forecast or agronomic recommendation. Confirm decisions with local extension advice and field checks."
+    },
+    "charts": [
+      {
+        "id": "chart-temperature",
+        "exists": true,
+        "hasChart": true,
+        "datasets": 3,
+        "points": 270
+      },
+      {
+        "id": "chart-water",
+        "exists": true,
+        "hasChart": true,
+        "datasets": 2,
+        "points": 180
+      },
+      {
+        "id": "chart-soil",
+        "exists": true,
+        "hasChart": true,
+        "datasets": 2,
+        "points": 180
+      }
+    ]
+  },
+  "phase4": {
+    "mapClick": {
+      "coords": "26.50019\u00b0 N, 31.58527\u00b0 E",
+      "location": "New Valley Governorate",
+      "tags": [
+        "Inside Egypt",
+        "NASA POWER available",
+        "\u0627\u0644\u0648\u0627\u062f\u064a \u0627\u0644\u062c\u062f\u064a\u062f"
+      ]
+    },
+    "aswan": {
+      "location": "Aswan Governorate",
+      "coords": "23.37490\u00b0 N, 32.61750\u00b0 E",
+      "reference": "GOVERNORATE REFERENCE \u00b7 REGIONAL SYNTHESIS\n\nAswan\n\nUpper/Middle Nile Valley \u00b7 Almost entirely irrigated from the Nile system; conjunctive groundwater use in some areas. Irrigation efficiency and drainage are major constraints.\n\nRegional soil: Nile alluvial and desert-fringe sandy soils; very hot, hyper-arid climate.\n\nRotation context: Winter cereals and berseem clover commonly alternate with summer maize, sorghum, cotton or vegetables. Sugarcane is important in the southern governorates.\n\nSugarcane \u00b7 \u0642\u0635\u0628 \u0627\u0644\u0633\u0643\u0631\nWheat \u00b7 \u0642\u0645\u062d\nMaize \u00b7 \u0630\u0631\u0629 \u0634\u0627\u0645\u064a\u0629\nFaba bean \u00b7 \u0641\u0648\u0644 \u0628\u0644\u062f\u064a\nSorghum \u00b7 \u0633\u0648\u0631\u062c\u0645\nOnion \u00b7 \u0628\u0635\u0644\nSourc",
+      "cropTags": [
+        "Sugarcane \u00b7 \u0642\u0635\u0628 \u0627\u0644\u0633\u0643\u0631",
+        "Wheat \u00b7 \u0642\u0645\u062d",
+        "Maize \u00b7 \u0630\u0631\u0629 \u0634\u0627\u0645\u064a\u0629",
+        "Faba bean \u00b7 \u0641\u0648\u0644 \u0628\u0644\u062f\u064a",
+        "Sorghum \u00b7 \u0633\u0648\u0631\u062c\u0645",
+        "Onion \u00b7 \u0628\u0635\u0644"
+      ]
+    },
+    "reset": {
+      "location": "Sohag Governorate",
+      "coords": "26.55910\u00b0 N, 31.69910\u00b0 E",
+      "reference": "GOVERNORATE REFERENCE \u00b7 REGIONAL SYNTHESIS; PILOT GOVERNORATE\n\nSohag\n\nUpper/Middle Nile Valley \u00b7 Almost entirely irrigated from the Nile system; conjunctive groundwater use in some areas. Irrigation efficiency and drainage are major constraints.\n\nRegional soil: Deep Nile alluvial soils, often clayey to silty, with calcareous patches and localized salinity where drainage is poor.\n\nRotation context:"
+    },
+    "soil": {
+      "classes": [
+        "alkaline",
+        "very low",
+        "strongly saline",
+        "Calcareous sandy loam",
+        "Poorly drained"
+      ],
+      "summary": "INPUTS PROVIDED\n5/5\nCONFIDENCE\nmedium-high\nFLAGS\nhigh, moderate",
+      "factors": 5,
+      "warnings": 3
+    },
+    "save": "Saved locally \u00b7 profile #10 \u00b7 12/11/2026, 03:43:34",
+    "cropInitial": {
+      "options": 22,
+      "filters": [
+        {
+          "label": "All 22",
+          "pressed": "true"
+        },
+        {
+          "label": "Winter 9",
+          "pressed": "false"
+        },
+        {
+          "label": "Summer 8",
+          "pressed": "false"
+        },
+        {
+          "label": "Perennial 5",
+          "pressed": "false"
+        }
+      ],
+      "selected": "Wheat \u0642\u0645\u062d",
+      "text": "Poaceae (grass) \u00b7 winter\n          Wheat \u0642\u0645\u062d\n        \n        cereal\n      \n      \n        \n      \n        Water demandLow-medium (2/4)\n        \n      \n        \n      \n        Heat tolerance2/5\n        \n      \n        \n      \n        Drought tolerance3/5\n        \n      \n        \n      \n        Salinity tolerance6 dS/m ECe\n        \n      \n      \n      \n        FamilyPoaceae (grass)\n        Cyclewinter\n        N fixationNo\n        Soil coverlow\n        Residuemedium\n        Root depth1.2 m\n        Kc mid-season1.15\n        PlantingNov, Dec\n        HarvestApr, May\n      \n      \n      \n        \n          Reference crop calendar\n          Planting Harvest Current month\n        \n        JanFebMarAprMayJunJulAugSepOctNovDec\n        Month windows are broad reference ranges from FAO crop-calendar material. Actual sowing and harvest dates vary by variety, governorate and season.\n      \n      Stapl",
+      "traitBars": 4,
+      "calendarCells": 12,
+      "calendarPlanting": 2
+    },
+    "cropFiltered": {
+      "options": 8,
+      "active": "Summer 8",
+      "names": [
+        "Maize \u0630\u0631\u0629 \u0634\u0627\u0645\u064a\u0629",
+        "Rice \u0623\u0631\u0632",
+        "Cotton \u0642\u0637\u0646",
+        "Sorghum \u0633\u0648\u0631\u062c\u0645",
+        "Sesame \u0633\u0645\u0633\u0645",
+        "Tomato \u0637\u0645\u0627\u0637\u0645",
+        "Sunflower \u0639\u0628\u0627\u062f \u0627\u0644\u0634\u0645\u0633",
+        "Groundnut \u0641\u0648\u0644 \u0633\u0648\u062f\u0627\u0646\u064a"
+      ]
+    },
+    "cropSearch": {
+      "options": 1,
+      "names": [
+        "Rice \u0623\u0631\u0632"
+      ]
+    },
+    "crop": {
+      "text": "Poaceae (grass) \u00b7 summer\n          Rice \u0623\u0631\u0632\n        \n        cereal\n      \n      \n        \n      \n        Water demandVery high (4/4)\n        \n      \n        \n      \n        Heat tolerance3/5\n        \n      \n        \n      \n        Drought tolerance1/5\n        \n      \n        \n      \n        Salinity tolerance3 dS/m ECe\n        \n      \n      \n      \n        FamilyPoaceae (grass)\n        Cyclesummer\n        N fixationNo\n        Soil coverhigh\n        Residuelow\n        Root depth0.6 m\n        Kc mid-season1.2\n        PlantingMay, Jun\n        HarvestSep, Oct\n      \n      \n      \n        \n          Reference crop calendar\n          Planting Harvest Current month\n        \n        JanFebMarAprMayJunJulAugSepOctNovDec\n        Month windows are broad reference ranges from FAO crop-calendar material. Actual sowing and harvest dates vary by variety, governorate and season.\n      \n      Paddy rice",
+      "selected": "Rice \u0623\u0631\u0632",
+      "options": 1,
+      "traitBars": 4,
+      "calendarCells": 12,
+      "calendarPlanting": 2,
+      "calendarHarvest": 2
+    },
+    "mapPresent": true
+  },
+  "phase3": {
+    "cards": 3,
+    "names": [
+      "SMAP soil moisture",
+      "GPM IMERG precipitation",
+      "MODIS vegetation index"
+    ],
+    "images": [
+      {
+        "src": "/api/satellite/image/smap?lat=26.5591&lon=31.6991&date=2026-11-09",
+        "loaded": true,
+        "width": 560
+      },
+      {
+        "src": "/api/satellite/image/gpm?lat=26.5591&lon=31.6991&date=2026-11-10",
+        "loaded": true,
+        "width": 560
+      },
+      {
+        "src": "/api/satellite/image/modis?lat=26.5591&lon=31.6991&date=2026-11-10",
+        "loaded": true,
+        "width": 560
+      }
+    ],
+    "summary": "LOCATION\n26.5591, 31.6991\nGIBS IMAGERY\n3/3 sources\nCMR METADATA\n3/3 sources\nQUANTITATIVE\n0/3 enabled\nRefresh status",
+    "accessNote": ""
+  },
+  "phase6": {
+    "rotation": {
+      "cards": 4,
+      "names": [
+        "Water-thrifty rotation",
+        "Salt-aware barley rotation",
+        "Diversified market rotation",
+        "Cereal\u2013fodder resilience"
+      ],
+      "scores": [
+        "69.2/100\n64.7\u201373.7",
+        "62/100\n57.5\u201366.5",
+        "58.2/100\n53.7\u201362.7",
+        "56.1/100\n51.6\u201360.6"
+      ],
+      "factors": 20,
+      "summary": "RANKING UNDER YOUR WEIGHTS\n\nWater-thrifty rotation leads at 69.2/100\n\nSensitivity range 64.7\u201373.7 \u00b7 confidence medium-high. Ranking is produced by the configured weights. Change the weights to see how sensitive the order is; a small score gap is not a decisive recommendation.\n\nLEADER GAP\n+7.2 pts\n\npartly overlapping bands\n\nLIFTS THE LEADER\nWater balance\n\n25 pts at 100/100\n\nLIMITS THE LEADER\nSoil p",
+      "briefing": {
+        "gap": "+7.2 pts",
+        "items": [
+          "LEADER GAP\n+7.2 pts\n\npartly overlapping bands",
+          "LIFTS THE LEADER\nWater balance\n\n25 pts at 100/100",
+          "LIMITS THE LEADER\nSoil protection\n\n4.7 pts at 31/100"
+        ],
+        "checks": "NEXT CHECKS\nState the water source and irrigation method \u2014 Water balance currently cannot distinguish canal, groundwater, rainfed or drip systems.",
+        "interpretation": "Sensitivity range 64.7\u201373.7 \u00b7 confidence medium-high. Ranking is produced by the configured weights. Change the weights to see how sensitive the order is; a small score gap is not a decisive recommendation.",
+        "note": "Band overlap is a sensitivity check on independent factor uncertainty. It is not a statistical confidence interval or a probability that one rotation will perform better."
+      },
+      "riskFlags": [
+        [
+          "Watch \u00b7 Salinity mismatch \u00b7 42/100",
+          "Watch \u00b7 Low soil cover \u00b7 31/100"
+        ],
+        [
+          "Watch \u00b7 Low soil cover \u00b7 45.5/100",
+          "Watch \u00b7 Narrow rotation \u00b7 23/100"
+        ],
+        [
+          "Watch \u00b7 Salinity mismatch \u00b7 26.2/100",
+          "Watch \u00b7 Low soil cover \u00b7 35.2/100"
+        ],
+        [
+          "Watch \u00b7 Salinity mismatch \u00b7 41.2/100"
+        ]
+      ],
+      "context": "INPUTS IN USE\n\nSohag Governorate\n\nClimate point 26.5591, 31.6991\n\nNASA: 52 heat days \u226535 \u00b0C\nNASA: 0.03 mm rain\nUser: farm profile #10\nUser: 5 soil field(s)\nCalc: 90-day context\n\nPOWER period 2026-08-15 \u2192 2026-11-12 \u00b7 retrieved 2026-11-12 \u00b7 latest observation 2026-11-08.\n\nSoil EC 10 dS/m \u00b7 organic matter 0.3% \u00b7 water source not provided.\n\nUser inputs and NASA observations are kept separate. Reference crop traits never become farm measurements.",
+      "weightInputs": 5,
+      "alert": ""
+    },
+    "weights": {
+      "water": "50",
+      "salinity": "0",
+      "total": "Raw total 105; weights are normalised before scoring.",
+      "normalizedWater": "50"
+    },
+    "weightResponse": {
+      "normalised": {
+        "water": 47.619,
+        "salinity": 0.0,
+        "climate": 19.0476,
+        "soil": 14.2857,
+        "diversity": 19.0476
+      },
+      "scenarios": 4,
+      "climateSource": "caller-supplied context"
+    },
+    "explanation": {
+      "visible": true,
+      "text": "Factor explanations, method and sources\nWater balance \u2014 100/100 (user inputs + reference traits)\nMean water-demand level 1.00 on a 1\u20134 scale (Barley=1, Sorghum=1, Chickpea=1, Sesame=1).\n\nRule: Mean crop water-demand level (1 very low \u2026 4 very high) is inverted to 0\u2013100. Rainfed systems lose 20 points if any crop needs medium or more water; drip/sprinkler systems receive a 5-point efficiency credit, capped at 100.\n\nSource: FAO Irrigation and Drainage Paper 56 crop characteristics; user irrigation inputs.\n\nSensitivity: \u00b18 points at this factor level; weight 47.619%.\n\nSalinity fit \u2014 42/100 (user EC + reference thresholds)\nField EC 10 dS/m compared with each crop's approximate ECe threshold.\nBelow threshold: Barley (8.0 dS/m), Sorghum (6.8 dS/m), Chickpea (1.0 dS/m), Sesame (1.0 dS/m).\n\nRule: Each crop's approximate ECe tolerance threshold is compared with the user-supplied EC: score = clamp(tolerance / EC, 0, 1) \u00d7 100, averaged across crops. Without an EC value the factor uses mean tolerance alone, is marked lower-confidence, and does not pretend to know the field's salinity.\n\nSource: FAO Irrigation and Drainage Paper 29 salinity thresholds; user soil test.\n\nSensitivity: \u00b18 points at this factor level; weight 0%.\n\nClimate resilience \u2014 80/100 (NASA POWER + reference traits)\nHeat pressure 1.00 from 52 day(s) \u226535 \u00b0C; rain-scarcity pressure 1.00 (0.0 mm rain over 90 days).\nCrop heat tolerance 3.5/5 \u2192 component 70.0; drought tolerance 4.5/5 \u2192 component 90.0.\n\nRule: NASA POWER daily maximum temperature and precipitation are reduced to heat-day and rain-scarcity pressures (0\u20131). For each pressure, the tolerance shortfall from 5/5 is scaled by that pressure and averaged across heat and drought. Without climate data the raw trait score is retained at reduced confidence with no claim of local calibration.\n\nSource: NASA POWER daily AG/LST point data; FAO EcoCrop-derived crop traits.\n\nSensitivity: \u00b18 points at this factor level; weight 19.0476%.\n\nSoil protection \u2014 31/100 (reference traits + user organic matter)\nMean cover/residue level 1.50 on a 1\u20133 scale (cover 1, 2, 1, 1; residue 2, 3, 1, 1).\nOrganic matter 0.3% (<1%): up to +10 points for residue cover on a depleted soil (qualitative rule).\n\nRule: Crop soil-cover and residue levels (low/medium/high) are averaged and scaled to 0\u2013100. When user organic matter is below 1%, high-residue crops receive a transparency-flagged bonus because cover is more valuable on depleted soils. This is a qualitative rule, not a soil-carbon model.\n\nSource: Crop trait reference set; user organic-matter input.\n\nSensitivity: \u00b110 points at this factor level; weight 14.2857%.\n\nRotation diversity & continuity \u2014 75.5/100 (reference traits)\n1/4 crops fix nitrogen (share 25%; ideal 20\u201350%).\n3/4 distinct crop families.\n1 adjacent same-family pair(s): \u221212 each.\nWinter/summer seasons alternate.\n\nRule: Scores legume presence, distinct crop families, adjacent same-family penalties and winter/summer alternation. It is an agronomic heuristic, not a pest-risk model.\n\nSource: FAO crop rotation principles; crop family and cycle traits.\n\nSensitivity: \u00b15 points at this factor level; weight 19.0476%.\n\nWhy this sequence: Prioritises low water demand, drought and heat tolerance, and a winter legume. It trades some soil cover and market diversity for lower irrigation exposure.\n\nCaution: Lower water demand does not guarantee savings without matched irrigation scheduling.",
+      "sourceMentions": 5,
+      "ruleMentions": 5
+    },
+    "rotationMobile": {
+      "overflow": 0,
+      "cards": 4
+    },
+    "methods": {
+      "panels": 6,
+      "hasTable": true,
+      "text": "Independent prototype \u2014 NASA does not endorse this application.\n\nField Shift is an Egypt-focused decision-support prototype built for the 2026 NASA Space Apps Challenge. It separates measured data, satellite/model estimates, user inputs and calculated indicators.\n\nDATA PROVENANCE\n\nNASA sources and what each one contributes\nOfficial product links\nSOURCE\tROLE HERE\tRESOLUTION\tCOVERAGE\tACCESS\tOFFICIAL LINKS\nNASA POWER \u2014 Daily Point API\tTemperature, precipitation, solar radiation, humidity, wind and model root-zone wetness for the selected coordinate.\t0.5\u00b0 \u00d7 0.5\u00b0 grid cell (daily point API)\t1981-01-01 to near real time; several days latency\tPublic, no login\tProduct\nDocumentation\nNASA SMAP \u2014 SPL3SMP_E V006\tSatellite soil-moisture context. This MVP displays public GIBS imagery and CMR granule metadata; it does not claim a numeric SMAP point value.\t9 km enhanced L3 product\tGlobal daily product; imagery dates depend on GIBS processing\tImagery/metadata public; quantitative granules require Earthdata Login\tProduct\nDocumentation\nNASA GPM IMERG Late Run \u2014 GPM_3IMERGDL V07\tPrecipitation context. Public GIBS imagery and CMR granule metadata; quantitative access is not enabled.\t0.1\u00b0 \u00d7 0.1\u00b0\tGlobal, 2000-present (Late Run); latest granule verified during development\tImagery/metadata public; quantitative granules require Earthdata Login\tProduct\nDocumentation\nNASA MODIS \u2014 MOD13Q1 V061\tVegetation-index context. Public GIBS NDVI imagery and CMR granule metadata; quantitative access is not enabled.\t250 m, 16-day composite\tGlobal, 2000-present\tImagery/metadata public; quantitative granules require Earthdata Login\tProduct\nDocumentation\n\nRetrieval timestamps, observation dates and unit metadata are stored with every NASA POWER response and shown in the Climate tab and local SQLite database. NASA GIBS/CMR checks are timestamped in the Satellite tab.\n\nEVIDENCE TYPES\n\nWhat is measured, modelled, entered or calculated\nNASA observation / model estimate\nGrid-cell climate and imagery\n\nPOWER variables are assimilated/model-derived estimates for a grid cell, not an on-farm sensor reading. SMAP, GPM and MODIS cards show rendered NASA GIBS imagery and verify that CMR granules exist; they do not display a numeric satellite value.\n\nUser input\nSoil and farm context\n\nTexture, pH, organic matter, EC, drainage, irrigation and water source are entered by the user and stored locally in SQLite. Blank fields remain blank; they are not filled with regional averages.\n\nReference dataset\nEgyptian governorate and crop traits\n\nGovernorate summaries and crop characteristics are curated reference ranges from FAO sources. They are not a farm soil test, variety trial or official governorate statistic. The application labels them as reference data wherever they appear.\n\nCalculated indicator\nRisk screens, rotation scores and soil classes\n\nClimate-risk signals, factor scores, weighted totals, sensitivity bands and rotation briefs are deterministic rules applied to the inputs above. They are exploratory indicators, not forecasts, official warnings, yield, profit, water-use or food-security predictions.\n\nCLIMATE-RISK SCREENING\n\nFive fixed rules, every threshold visible\nSignals and thresholds\nHeat stress \u2014 days with T2M_MAX \u226535 \u00b0C; high at \u226530% of valid days or \u22653 days \u226540 \u00b0C.\nDry spell \u2014 days with PRECTOTCORR <1 mm; high at \u226590% of days or a run \u226530 days.\nHeavy rain \u2014 days \u226510 mm; high at \u22653 such days.\nStrong wind \u2014 days with WS2M \u22656 m/s; high at \u226520% of valid days.\nLow humidity \u2014 days with mean RH2M <20%; high at \u226530% of valid days.\nWhat the screen does and does not mean\n\nEach card reports the observed count, the longest run where relevant, the source variable and a caveat. Coverage below 80% is stated and lowers confidence. Missing days are excluded, never replaced with zero or a regional average.\n\nThe screen describes the selected historical period. It is not a forecast, an official meteorological warning or a crop-loss model. Rain is not irrigation, and air temperature alone does not measure crop heat stress; growth stage, humidity, wind, soil water and management also matter.\n\nThe heat and dry-spell pressures use the same POWER inputs as the rotation climate-resilience factor, but the screen does not change the user's weights automatically.\n\nROTATION METHOD\n\nFive factors, configurable weights, explicit uncertainty\nFactors\nWater balance \u2014 crop water-demand levels against the stated irrigation system.\nSalinity fit \u2014 crop ECe thresholds against user EC, or a lower-confidence tolerance-only score.\nClimate resilience \u2014 crop heat/drought traits against NASA POWER heat-day and rain-scarcity pressures.\nSoil protection \u2014 cover/residue traits with an organic-matter caveat.\nDiversity & continuity \u2014 legume share, family diversity and season alternation.\nUncertainty and limitations\n\nThe displayed range propagates independent factor uncertainty: \u03c3 = \u221a\u03a3(weight \u00d7 uncertainty)\u00b2, shown as an 80% sensitivity band. It is not a calibrated confidence interval.\n\nThe ranking can change when weights change; a small score gap is not a decisive recommendation. Crop traits vary by variety, soil and management. Local trials and extension advice take precedence.\n\nscore = \u03a3(normalised weight \u00d7 factor score) / \u03a3 weights of available factors\n\nCrop and salinity references: FAO Irrigation and Drainage Papers 56 and 29, FAO EcoCrop and FAO Crop Calendar. Governorate context is a regional synthesis with source links in the Farm tab.\n\nThe decision brief reports the leader-to-runner gap, band separation, the strongest and weakest contributing factors, per-scenario risk flags below 50/100, and missing-input checks. Band overlap is a sensitivity check, not a statistical confidence interval or a probability of better performance.\n\nKNOWN LIMITATIONS\n\nWhat this MVP does not do\nData and access\nNo quantitative SMAP, GPM or MODIS point extraction: NASA Earthdata Login is required and no credentials are requested or stored.\nNo farm sensors, field boundaries, yield records or economic data.\nPOWER is a grid-cell product with several days of latency; it is not local weather-station data.\nClimate-risk thresholds are fixed screening rules, not locally calibrated forecasts or official warnings.\nGovernorate reference data are regional syntheses, not farm measurements.\nScientific scope\nNo yield, profit, water-saving or soil-carbon prediction is made.\nNo pesticide, fertilizer or irrigation schedule is prescribed.\nEgyptian crop rules are deliberately not transferred outside Egypt.\nRotation scenarios are editable examples, not recommendations.\n\nTRANSPARENCY\n\nAI usage and challenge alignment\nOfficial challenge \u2197\nAI usage disclosure\n\nAI assistance (DeepSeek V4.1 Flash Free via the OpenCode coding agent) was used to help write application code, tests, interface text and documentation. AI output was checked against the cited NASA, FAO and geospatial sources and against live API responses.\n\nAI-generated text is not presented as a verified scientific finding. Agricultural assumptions remain simplified reference rules and require specialist review before real-world use. NASA branding is not used to imply endorsement.\n\nChallenge mapping\n\nNASA Earth observations \u2192 POWER climate, GIBS/CMR satellite context. Local soil information \u2192 user soil profile and governorate reference context. Crop characteristics \u2192 22-crop reference trait set. Farmer priorities \u2192 configurable factor weights. Rotation exploration \u2192 four transparent scenarios.\n\nSee the project README for the full requirement-to-feature audit and test commands."
+    },
+    "workflow": {
+      "powerStatus": 200,
+      "climate": {
+        "latest": "08 Nov 2026",
+        "completeness": "94.9%",
+        "location": "Aswan Governorate",
+        "errorVisible": false,
+        "charts": [
+          {
+            "id": "chart-temperature",
+            "points": 270
+          },
+          {
+            "id": "chart-water",
+            "points": 180
+          },
+          {
+            "id": "chart-soil",
+            "points": 180
+          }
+        ]
+      },
+      "farm": {
+        "coords": "23.37490\u00b0 N, 32.61750\u00b0 E",
+        "location": "Aswan Governorate"
+      },
+      "rotation": {
+        "context": "INPUTS IN USE\n\nAswan Governorate\n\nClimate point 23.3749, 32.6175\n\nNASA: 58 heat days \u226535 \u00b0C\nNASA: 0.07 mm rain\nUser: farm profile #10 (not applied)\nCalc: 90-day context\n\nPOWER period 2026-08-15 \u2192 2026-11-12 \u00b7 retrieved 2026-11-12 \u00b7 latest observation 2026-11-08.\n\nSaved soil values were not applied because the farm profile belongs to a different point. Scores use reference crop traits only.\n\nCoordinate mismatch. The saved farm profile is at 26.5591, 31.6991, while climate scoring uses 23.3749, 32.6175. The profile soil was not applied. Use farm coordinates\n\nUser inputs and NASA observations are",
+        "climateTags": [
+          "NASA: 58 heat days \u226535 \u00b0C",
+          "NASA: 0.07 mm rain",
+          "User: farm profile #10 (not applied)",
+          "Calc: 90-day context"
+        ],
+        "summary": "RANKING UNDER YOUR WEIGHTS\n\nWater-thrifty rotation leads at 80.8/100\n\nSensitivity range 75.1\u201386.5 \u00b7 confidence low. Ranking is produced by the configured weights. Change the weights to see how sensitive the order is; a small score gap is not a decisive recommendation.\n\nLEADER GAP\n+15.1 pts\n\nseparated bands\n\nLIFTS THE LEADER\nWater balance\n\n47.6 pts "
+      }
+    }
+  },
+  "console_errors": [],
+  "page_errors": []
+}

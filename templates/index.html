@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>فيلد شيفت مصر — مساعدك الزراعي بأرضك</title>
+  <meta name="description" content="مساعد زراعي بيستخدم بيانات NASA الحقيقية ومعلومات أرضك عشان يساعدك تفهم أرضك، تختار محاصيل، وتقارن دورات زراعية.">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f5c46'/%3E%3Cpath d='M10 44c8-12 20-20 44-24M10 52c10-10 24-16 44-18' stroke='%23e9c46a' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link rel="stylesheet" href="/static/css/platform.css">
+</head>
+<body class="lang-ar">
+  <a class="skip-link" href="#main" data-i18n="skip">روح للمحتوى</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" role="img"><rect width="64" height="64" rx="15" fill="#1f5c46"/><path d="M9 45c9-13 22-21 46-25M9 54c11-11 26-17 46-19" stroke="#e9c46a" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="47" cy="16" r="4" fill="#8fc6b4"/></svg>
+      </div>
+      <div class="brand-copy">
+        <p class="brand-name"><span data-i18n="brand.name">فيلد شيفت</span> <span data-i18n="brand.country">مصر</span></p>
+        <p class="brand-sub" data-i18n="brand.sub">بيانات NASA · التربة · المحاصيل والدورات</p>
+      </div>
+    </div>
+
+    <nav class="main-nav" id="main-nav" aria-label="الأقسام الرئيسية" data-i18n-aria="nav.label">
+      <button class="nav-link is-active" type="button" data-view-link="farm" aria-current="page">
+        <span class="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 21V9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 13c-4.2 0-6.6-2.3-6.6-5.8 4.2 0 6.6 2.3 6.6 5.8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 16.5c4.2 0 6.6-2.3 6.6-5.8-4.2 0-6.6 2.3-6.6 5.8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="nav-full" data-i18n="nav.farm">أرضي</span>
+        <span class="nav-short" data-i18n="nav.farm.short">أرضي</span>
+      </button>
+      <button class="nav-link" type="button" data-view-link="climate">
+        <span class="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.8v2.2M12 19v2.2M2.8 12H5M19 12h2.2M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <span class="nav-full" data-i18n="nav.climate">حالة الأرض والمناخ</span>
+        <span class="nav-short" data-i18n="nav.climate.short">الأرض والمناخ</span>
+      </button>
+      <button class="nav-link" type="button" data-view-link="crops">
+        <span class="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 20c0-7 4-12 13-14-1 8-5 12-13 14Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 17c2-4 5-6 8-7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <span class="nav-full" data-i18n="nav.crops">المحاصيل المناسبة</span>
+        <span class="nav-short" data-i18n="nav.crops.short">المحاصيل</span>
+      </button>
+      <button class="nav-link" type="button" data-view-link="rotation">
+        <span class="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4.5 9a8 8 0 0 1 13.2-3.2L20 8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M20 4v4h-4M19.5 15a8 8 0 0 1-13.2 3.2L4 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M4 20v-4h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <span class="nav-full" data-i18n="nav.rotation">الدورة الزراعية</span>
+        <span class="nav-short" data-i18n="nav.rotation.short">الدورة</span>
+      </button>
+      <button class="nav-link" type="button" data-view-link="plan">
+        <span class="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 8h7M8.5 11.5h7M8.5 15h4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <span class="nav-full" data-i18n="nav.plan">خطتي الزراعية</span>
+        <span class="nav-short" data-i18n="nav.plan.short">خطتي</span>
+      </button>
+      <button class="nav-link" type="button" data-view-link="help">
+        <span class="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.6 2.3c-.8.4-1.2 1-1.2 1.9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="17" r="1" fill="currentColor"/></svg>
+        </span>
+        <span class="nav-full" data-i18n="nav.help">المساعدة ومصادر البيانات</span>
+        <span class="nav-short" data-i18n="nav.help.short">المساعدة</span>
+      </button>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-control" role="group" data-i18n-aria="lang.aria">
+        <button class="lang-option is-active" id="lang-mixed" type="button" data-lang-choice="ar" aria-pressed="true">
+          <span data-i18n="lang.mixed">مصري + English</span>
+        </button>
+        <button class="lang-option" id="lang-en" type="button" data-lang-choice="en" aria-pressed="false">
+          <span data-i18n="lang.english">English</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="global-notice" id="global-notice" role="status" aria-live="polite" hidden></div>
+
+    <!-- ============================ MY FARM ============================ -->
+    <section class="view is-active" id="view-farm" data-view="farm" aria-labelledby="farm-title">
+      <header class="view-head">
+        <div>
+          <p class="eyebrow" data-i18n="nav.farm">أرضي</p>
+          <h1 id="farm-title" data-i18n="px.farm.title">أرضي</h1>
+          <p class="lede" data-i18n="px.farm.lede">سجّل أرضك ببساطة: مكانها، مساحتها، ونوع التربة والري لو تعرفهم. أي حاجة مش عارفها سيبها فاضية — إحنا بنوضّح الناقص ومش بنخمّنه.</p>
+        </div>
+        <div class="view-head-actions">
+          <button class="btn btn-primary" id="farm-new" type="button">
+            <span aria-hidden="true">＋</span> <span data-i18n="px.farm.new">أرض جديدة</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="farm-toolbar">
+        <div class="farm-chips" id="farm-chips" role="group" aria-label="أراضيَّ" data-i18n-aria="px.farm.myFarms"></div>
+        <p class="small muted" id="farm-count"></p>
+      </div>
+
+      <div class="farm-layout">
+        <div class="farm-main">
+          <section class="surface-card map-card">
+            <div class="map-toolbar">
+              <span data-i18n="px.farm.mapHint">اسحب العلامة أو دوس على الخريطة عشان تظبط المكان.</span>
+              <div class="map-tools">
+                <button class="btn btn-small btn-ghost" id="farm-geolocate" type="button" data-i18n="px.farm.geolocate">استخدم مكاني</button>
+                <button class="btn btn-small btn-ghost" id="farm-reset" type="button" data-i18n="px.farm.reset">ارجع لسوهاج</button>
+              </div>
+            </div>
+            <div id="farm-map" role="application" aria-label="Interactive farm location map"></div>
+          </section>
+
+          <section class="surface-card location-summary" aria-live="polite">
+            <div class="location-summary-head">
+              <div>
+                <p class="mini-label" data-i18n="px.farm.location.selected">الأرض المختارة</p>
+                <p class="location-name" id="farm-location-name">—</p>
+                <p class="small muted" id="farm-location-coords">—</p>
+              </div>
+              <span class="provenance-tag tag-user" data-i18n="px.common.youEntered">أنت أدخلتها</span>
+            </div>
+            <p class="small" id="farm-location-note" data-i18n="px.farm.location.none">لسه مختارتش مكان.</p>
+          </section>
+
+          <section class="surface-card reference-card" id="farm-reference" hidden></section>
+        </div>
+
+        <div class="farm-side">
+          <form id="farm-form" class="surface-card farm-form" novalidate>
+            <div class="form-section">
+              <h2 class="section-title"><span class="section-num" aria-hidden="true">1</span> <span data-i18n="px.farm.name.label">اسم الأرض</span></h2>
+              <label class="field">
+                <span data-i18n="px.farm.name.label">اسم الأرض</span>
+                <input id="farm-name" type="text" maxlength="120" data-i18n-placeholder="px.farm.name.placeholder" placeholder="اسم الأرض فقط">
+                <small data-i18n="px.farm.name.hint">اسم بسيط تعرفه بيه الأرض.</small>
+              </label>
+              <div class="form-grid-2">
+                <label class="field">
+                  <span data-i18n="px.farm.area.label">مساحة الأرض (فدان)</span>
+                  <input id="farm-area" type="number" inputmode="decimal" min="0.01" max="100000" step="0.01" placeholder="3">
+                  <small data-i18n="px.farm.area.hint">لو مش متأكد من المساحة، سيبها فاضية.</small>
+                </label>
+                <label class="field">
+                  <span data-i18n="px.farm.location.title">مكان الأرض</span>
+                  <select id="farm-governorate">
+                    <option value="" data-i18n="common.choose">اختار</option>
+                  </select>
+                  <small data-i18n="px.farm.location.hint">اختار المحافظة، أو دوس على الخريطة.</small>
+                </label>
+              </div>
+              <label class="field">
+                <span><span data-i18n="px.common.village">القرية / العزبة</span> <em class="optional-chip" data-i18n="px.common.optionalShort">اختياري</em></span>
+                <input id="farm-village" type="text" maxlength="80" data-i18n-placeholder="px.farm.village.placeholder" placeholder="مثال: اسم القرية">
+                <small data-i18n="px.farm.location.hint">تقدر تكتب اسم القرية أو العزبة.</small>
+              </label>
+
+              <details class="advanced-details">
+                <summary data-i18n="px.farm.advancedCoords">أو اكتب الإحداثيات بنفسك</summary>
+                <div class="coords-grid">
+                  <label class="field"><span data-i18n="px.farm.latitude">خط العرض</span><input id="farm-lat" type="number" step="0.0001" min="-90" max="90"></label>
+                  <label class="field"><span data-i18n="px.farm.longitude">خط الطول</span><input id="farm-lon" type="number" step="0.0001" min="-180" max="180"></label>
+                </div>
+                <button class="btn btn-small btn-ghost" id="farm-apply-coords" type="button" data-i18n="px.farm.applyCoords">استخدم الإحداثيات</button>
+              </details>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title"><span class="section-num" aria-hidden="true">2</span> <span data-i18n="px.farm.soil.title">نوع التربة</span></h2>
+              <p class="section-hint" data-i18n="px.farm.soil.hint">لو تعرف إنها رملية أو طينية أو طميية اختارها. لو مش متأكد سيبه «مش عارف».</p>
+              <label class="field">
+                <span data-i18n="px.farm.soil.title">نوع التربة</span>
+                <select id="farm-texture">
+                  <option value="" data-i18n="texture.unknown">مش عارف</option>
+                  <option value="sand" data-i18n="texture.sand">رملية</option>
+                  <option value="loamy_sand" data-i18n="texture.loamy_sand">رملية طميية خفيفة</option>
+                  <option value="sandy_loam" data-i18n="texture.sandy_loam">طميية رملية</option>
+                  <option value="loam" data-i18n="texture.loam">طميية متوازنة</option>
+                  <option value="silt_loam" data-i18n="texture.silt_loam">طميية ناعمة</option>
+                  <option value="clay_loam" data-i18n="texture.clay_loam">طينية طميية</option>
+                  <option value="clay" data-i18n="texture.clay">طينية</option>
+                  <option value="calcareous_sandy_loam" data-i18n="texture.calcareous_sandy_loam">طميية رملية جيرية</option>
+                  <option value="saline_clay" data-i18n="texture.saline_clay">طينية مالحة</option>
+                </select>
+              </label>
+
+              <fieldset class="fieldset">
+                <legend data-i18n="px.farm.salinity.title">ملوحة التربة (Soil Salinity)</legend>
+                <p class="field-help" data-i18n="px.farm.salinity.question">عندك نتيجة تحليل ملوحة (EC) من معمل؟</p>
+                <div class="choice-row">
+                  <label class="choice-inline"><input type="radio" name="salinity-known" value="no" checked><span data-i18n="px.farm.salinity.no">لا، أو مش عارف</span></label>
+                  <label class="choice-inline"><input type="radio" name="salinity-known" value="yes"><span data-i18n="px.farm.salinity.yes">نعم، عندي نتيجة EC</span></label>
+                </div>
+                <div class="salinity-input" id="salinity-input-wrap" hidden>
+                  <label class="field">
+                    <span data-i18n="px.farm.ec.label">قيمة EC (dS/m)</span>
+                    <input id="farm-ec" type="number" inputmode="decimal" min="0" max="100" step="0.01" placeholder="1.4">
+                    <small data-i18n="px.farm.ec.hint">ده الرقم المكتوب في تحليل التربة. لو الوحدة مختلفة، سيبها فاضية.</small>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title"><span class="section-num" aria-hidden="true">3</span> <span data-i18n="px.farm.irrigation.title">الري والمياه</span></h2>
+              <label class="field">
+                <span data-i18n="step2.irrigation">بتروي إزاي؟</span>
+                <select id="farm-irrigation">
+                  <option value="" data-i18n="irrigation.unknown">مش عارف</option>
+                  <option value="furrow" data-i18n="irrigation.furrow">ري بالخطوط / سطحي</option>
+                  <option value="flood" data-i18n="irrigation.flood">ري بالغمر</option>
+                  <option value="drip" data-i18n="irrigation.drip">ري بالتنقيط</option>
+                  <option value="sprinkler" data-i18n="irrigation.sprinkler">ري بالرش</option>
+                  <option value="rainfed" data-i18n="irrigation.rainfed">اعتماد على الأمطار فقط</option>
+                  <option value="mixed" data-i18n="irrigation.mixed">أكتر من طريقة</option>
+                </select>
+              </label>
+              <details class="advanced-details">
+                <summary data-i18n="px.farm.water.details">تفاصيل المياه (اختياري)</summary>
+                <div class="form-grid-2">
+                  <label class="field">
+                    <span data-i18n="step2.waterSource">المياه بتيجي منين؟</span>
+                    <select id="farm-water-source">
+                      <option value="" data-i18n="water_source.unknown">مش عارف</option>
+                      <option value="nile_canal" data-i18n="water_source.nile_canal">ترعة من النيل</option>
+                      <option value="groundwater" data-i18n="water_source.groundwater">بئر مياه جوفية</option>
+                      <option value="mixed" data-i18n="water_source.mixed">ترعة وبئر</option>
+                      <option value="rainfall" data-i18n="water_source.rainfall">أمطار فقط</option>
+                      <option value="reuse" data-i18n="water_source.reuse">مياه صرف معاد استخدامها</option>
+                      <option value="other" data-i18n="water_source.other">مصدر تاني</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span data-i18n="step2.waterAvailability">المياه متاحة إزاي الموسم ده؟</span>
+                    <select id="farm-water-availability">
+                      <option value="" data-i18n="water_availability.unknown">مش عارف</option>
+                      <option value="abundant" data-i18n="water_availability.abundant">المياه متاحة غالباً</option>
+                      <option value="sufficient" data-i18n="water_availability.sufficient">تكفي الموسم</option>
+                      <option value="limited" data-i18n="water_availability.limited">محدودة / بنقسمها</option>
+                      <option value="scarce" data-i18n="water_availability.scarce">شحيحة جداً</option>
+                      <option value="rainfed" data-i18n="water_availability.rainfed">أمطار فقط</option>
+                    </select>
+                  </label>
+                </div>
+              </details>
+            </div>
+
+            <details class="advanced-details">
+              <summary data-i18n="px.farm.crops.details">بيانات المحاصيل (اختياري)</summary>
+              <div class="form-grid-2">
+                <label class="field">
+                  <span data-i18n="px.farm.currentCrop">بتزرع إيه حاليًا؟</span>
+                  <input id="farm-current-crop" type="text" maxlength="120" data-i18n-placeholder="px.farm.currentCrop.placeholder" placeholder="مثال: قمح، أو سيبها فاضية">
+                </label>
+                <label class="field">
+                  <span data-i18n="px.farm.previousCrops">زرعت إيه قبل كده؟</span>
+                  <input id="farm-previous-crops" type="text" maxlength="300" placeholder="ذرة، برسيم">
+                  <small data-i18n="px.farm.previousCrops.hint">اختياري. افصل بين المحاصيل بفاصلة.</small>
+                </label>
+              </div>
+            </details>
+
+            <details class="extra-details">
+              <summary data-i18n="px.farm.details.title">تفاصيل إضافية عن التربة</summary>
+              <p class="small muted" data-i18n="px.farm.details.hint">اختياري. لو عندك تحليل تربة كامل، التفاصيل دي بتحسّن الشرح.</p>
+              <div class="form-grid-2">
+                <label class="field"><span data-i18n="px.farm.ph">حموضة التربة pH</span><input id="farm-ph" type="number" inputmode="decimal" min="3" max="11" step="0.1" placeholder="7.8"></label>
+                <label class="field"><span data-i18n="px.farm.om">المادة العضوية (%)</span><input id="farm-om" type="number" inputmode="decimal" min="0" max="20" step="0.01" placeholder="0.8"></label>
+                <label class="field">
+                  <span data-i18n="px.farm.drainage">الصرف</span>
+                  <select id="farm-drainage">
+                    <option value="" data-i18n="drainage.unknown">مش عارف</option>
+                    <option value="well" data-i18n="drainage.well">صرف جيد</option>
+                    <option value="moderate" data-i18n="drainage.moderate">صرف متوسط</option>
+                    <option value="poor" data-i18n="drainage.poor">صرف ضعيف</option>
+                    <option value="excessive" data-i18n="drainage.excessive">صرف سريع جداً</option>
+                  </select>
+                </label>
+              </div>
+            </details>
+
+            <p class="privacy-note" data-i18n="px.farm.saveNote">بيانات أرضك بتتحفظ على الجهاز ده وفي قاعدة البيانات المحلية للتطبيق. مش بتتبعت لناسا.</p>
+
+            <div class="form-actions">
+              <button class="btn btn-primary btn-large" id="farm-save" type="submit" data-i18n="px.farm.save">احفظ الأرض</button>
+              <button class="btn btn-ghost" id="farm-save-continue" type="button" data-i18n="px.farm.saveAndContinue">احفظ واعرض الأرض والمناخ</button>
+            </div>
+            <div class="completeness-block" id="farm-completeness" hidden></div>
+          </form>
+        </div>
+      </div>
+
+      <details class="surface-card farm-explain">
+        <summary data-i18n="px.farm.explain.title">إزاي بنستخدم المعلومات دي؟</summary>
+        <p data-i18n="px.farm.explain.body">المكان بيحدد بيانات NASA POWER والمرجع الزراعي للمحافظة. التربة والملوحة والري بيدخلوا في مقارنة المحاصيل والدورات. أي معلومة ناقصة بتفضل ناقصة وبتظهر في «معلومات غير كافية».</p>
+        <div class="tag-row">
+          <span class="provenance-tag tag-user" data-i18n="px.farm.provenance.user">معلومات أنت أدخلتها</span>
+          <span class="provenance-tag tag-ref" data-i18n="px.farm.provenance.reference">وصف مرجعي للمحافظة، مش تحليل تربة</span>
+          <span class="provenance-tag tag-nasa" data-i18n="px.farm.provenance.nasa">تقدير من شبكة NASA POWER، مش حساس في الأرض</span>
+        </div>
+      </details>
+    </section>
+
+    <!-- ======================= LAND & CLIMATE ======================= -->
+    <section class="view" id="view-climate" data-view="climate" aria-labelledby="climate-title" hidden>
+      <header class="view-head">
+        <div>
+          <p class="eyebrow" data-i18n="nav.climate">حالة الأرض والمناخ</p>
+          <h1 id="climate-title" data-i18n="px.climate.title">حالة الأرض والمناخ</h1>
+          <p class="lede" data-i18n="px.climate.lede">بنحوّل بيانات NASA POWER للأرض المختارة لكلام بسيط: حرارة، أمطار، شمس، وإشارات زراعية. دي قراءة للفترة السابقة، مش توقعات جوية.</p>
+        </div>
+      </header>
+
+      <div class="farm-context" data-farm-context></div>
+
+      <div class="view-toolbar">
+        <div class="segmented" role="group" aria-label="Period" data-i18n-aria="px.climate.period.label">
+          <button class="segmented-btn is-active" type="button" data-climate-days="90" data-i18n="px.climate.period.90">آخر 90 يوم</button>
+          <button class="segmented-btn" type="button" data-climate-days="365" data-i18n="px.climate.period.365">آخر سنة</button>
+        </div>
+        <button class="btn btn-ghost btn-small" id="climate-refresh" type="button" data-i18n="px.common.refresh">حدّث البيانات</button>
+      </div>
+
+      <div class="empty-state" id="climate-empty" hidden>
+        <div class="empty-icon" aria-hidden="true">🌾</div>
+        <h2 data-i18n="px.climate.noFarm">اختار أرض من قسم «أرضي» عشان نشوف حالة الأرض والمناخ.</h2>
+        <button class="btn btn-primary" type="button" data-go-view="farm" data-i18n="px.common.startHere">ابدأ من هنا</button>
+      </div>
+
+      <div id="climate-loading" class="surface-card inline-loading" hidden>
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p data-i18n="px.common.loadingNasa">بنجيب بيانات NASA POWER… ممكن تاخد لحظات.</p>
+      </div>
+
+      <div class="alert alert-error" id="climate-error" role="alert" hidden>
+        <div class="alert-icon" aria-hidden="true">!</div>
+        <div>
+          <strong data-i18n="px.toast.error">حصلت مشكلة، جرّب تاني.</strong>
+          <p data-i18n="px.common.networkError">الاتصال بالإنترنت أو بـ NASA اتقطع. جرّب تاني؛ مفيش أرقام اتخمّنت.</p>
+        </div>
+        <button class="btn btn-small btn-ghost" type="button" id="climate-retry" data-i18n="common.retry">حاول تاني</button>
+      </div>
+
+      <div id="climate-root" hidden></div>
+    </section>
+
+    <!-- ========================== CROPS ========================== -->
+    <section class="view" id="view-crops" data-view="crops" aria-labelledby="crops-title" hidden>
+      <header class="view-head">
+        <div>
+          <p class="eyebrow" data-i18n="nav.crops">المحاصيل المناسبة</p>
+          <h1 id="crops-title" data-i18n="px.crops.title">المحاصيل المناسبة</h1>
+          <p class="lede" data-i18n="px.crops.lede">اتفرج على محاصيل مرجعية، وافهم احتياجاتها، وشوف توافقها مع أرضك. التوافق مبني على صفات موثّقة، مش توقع إنتاج أو ربح.</p>
+        </div>
+      </header>
+
+      <div class="farm-context" data-farm-context></div>
+
+      <div class="crops-toolbar surface-card">
+        <label class="field search-field">
+          <span class="sr-only" data-i18n="px.crops.search">دوّر على محصول بالعربي أو English</span>
+          <input id="crops-search" type="search" data-i18n-placeholder="px.crops.search" placeholder="دوّر على محصول بالعربي أو English">
+        </label>
+        <div class="filter-row">
+          <label class="field field-inline">
+            <span data-i18n="px.crops.filter.role">نوع المحصول</span>
+            <select id="crops-filter-role">
+              <option value="" data-i18n="px.crops.filterLabel.role">كل الأنواع</option>
+              <option value="cereal" data-i18n="px.role.cereal">حبوب</option>
+              <option value="legume" data-i18n="px.role.legume">بقوليات</option>
+              <option value="fodder" data-i18n="px.role.fodder">علف</option>
+              <option value="oilseed" data-i18n="px.role.oilseed">زيتية</option>
+              <option value="fiber" data-i18n="px.role.fiber">ألياف</option>
+              <option value="root" data-i18n="px.role.root">جذور ودرنات</option>
+              <option value="vegetable" data-i18n="px.role.vegetable">خضروات</option>
+              <option value="perennial" data-i18n="px.role.perennial">معمرة</option>
+            </select>
+          </label>
+          <label class="field field-inline">
+            <span data-i18n="px.crops.filter.season">الموسم</span>
+            <select id="crops-filter-season">
+              <option value="" data-i18n="px.crops.filterLabel.season">كل المواسم</option>
+              <option value="winter" data-i18n="px.cycle.winter">شتوي</option>
+              <option value="summer" data-i18n="px.cycle.summer">صيفي</option>
+              <option value="perennial" data-i18n="px.cycle.perennial">معمر</option>
+            </select>
+          </label>
+          <label class="field field-inline">
+            <span data-i18n="px.crops.filter.water">احتياج المياه</span>
+            <select id="crops-filter-water">
+              <option value="" data-i18n="px.crops.filterLabel.water">كل مستويات المياه</option>
+              <option value="very_low" data-i18n="px.water.very_low">منخفض جدًا</option>
+              <option value="low" data-i18n="px.water.low">منخفض</option>
+              <option value="medium" data-i18n="px.water.medium">متوسط</option>
+              <option value="high" data-i18n="px.water.high">مرتفع</option>
+              <option value="very_high" data-i18n="px.water.very_high">مرتفع جدًا</option>
+            </select>
+          </label>
+          <label class="field field-inline">
+            <span data-i18n="px.crops.filter.salinity">تحمّل الملوحة</span>
+            <select id="crops-filter-salinity">
+              <option value="" data-i18n="px.crops.filterLabel.salinity">كل مستويات الملوحة</option>
+              <option value="sensitive" data-i18n="px.salinity.sensitive">حساس</option>
+              <option value="moderately sensitive" data-i18n="px.salinity.moderately_sensitive">حساس نسبيًا</option>
+              <option value="moderately tolerant" data-i18n="px.salinity.moderately_tolerant">يتحمل نسبيًا</option>
+              <option value="tolerant" data-i18n="px.salinity.tolerant">يتحمل</option>
+            </select>
+          </label>
+        </div>
+        <p class="small muted" id="crops-count"></p>
+      </div>
+
+      <div class="alert alert-info" id="crops-no-farm" hidden>
+        <div>
+          <strong data-i18n="px.common.needFarmFirst">سجّل أرضك الأول عشان القسم ده يشتغل.</strong>
+          <p data-i18n="px.crops.needFarm">اختار أرض الأول عشان نحسب التوافق. لسه تقدر تتصفح المحاصيل.</p>
+        </div>
+        <button class="btn btn-small btn-ghost" type="button" data-go-view="farm" data-i18n="nav.farm">أرضي</button>
+      </div>
+
+      <div class="crops-layout">
+        <div class="crops-grid" id="crops-grid"></div>
+        <aside class="crop-detail surface-card" id="crop-detail" hidden aria-live="polite"></aside>
+      </div>
+    </section>
+
+    <!-- ========================= ROTATION ========================= -->
+    <section class="view" id="view-rotation" data-view="rotation" aria-labelledby="rotation-title" hidden>
+      <header class="view-head">
+        <div>
+          <p class="eyebrow" data-i18n="nav.rotation">الدورة الزراعية</p>
+          <h1 id="rotation-title" data-i18n="px.rotation.title">الدورة الزراعية</h1>
+          <p class="lede" data-i18n="px.rotation.lede">قارن أربع دورات مرجعية حسب اللي يهمك. الدرجات إرشادية وبتتغير مع أولوياتك ومعلومات أرضك — مش توصية مضمونة.</p>
+        </div>
+      </header>
+
+      <div class="farm-context" data-farm-context></div>
+
+      <section class="surface-card priorities-card">
+        <div class="section-head-inline">
+          <div>
+            <h2 data-i18n="px.rotation.priorities.title">إيه اللي يهمك أكتر في الدورة؟</h2>
+            <p class="small muted" data-i18n="px.rotation.priorities.hint">اختار أولوية أو أكتر. إحنا بنزوّد وزن اللي تختاره، وباقي العوامل بتفضل موجودة.</p>
+          </div>
+          <button class="btn btn-primary" id="rotation-run" type="button" data-i18n="px.rotation.calculate">قارن الدورات</button>
+        </div>
+        <div class="priority-grid" id="priority-options" role="group" aria-label="Farmer priorities"></div>
+        <p class="small muted" id="priority-note" data-i18n="px.rotation.priorities.none">مختارتش أولوية، فهنستخدم أوزان متساوية.</p>
+      </section>
+
+      <div class="empty-state" id="rotation-empty" hidden>
+        <div class="empty-icon" aria-hidden="true">🔄</div>
+        <h2 data-i18n="px.rotation.needFarm">اختار أرض من قسم «أرضي» عشان نستخدم معلوماتها في المقارنة.</h2>
+        <button class="btn btn-primary" type="button" data-go-view="farm" data-i18n="px.common.startHere">ابدأ من هنا</button>
+      </div>
+
+      <div id="rotation-loading" class="surface-card inline-loading" hidden>
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p data-i18n="px.rotation.loading">بنحسب مقارنة الدورات…</p>
+      </div>
+
+      <div class="alert alert-error" id="rotation-error" role="alert" hidden>
+        <div class="alert-icon" aria-hidden="true">!</div>
+        <div>
+          <strong data-i18n="px.toast.error">حصلت مشكلة، جرّب تاني.</strong>
+          <p data-i18n="px.common.networkError">الاتصال بالإنترنت أو بـ NASA اتقطع. جرّب تاني؛ مفيش أرقام اتخمّنت.</p>
+        </div>
+        <button class="btn btn-small btn-ghost" type="button" id="rotation-retry" data-i18n="common.retry">حاول تاني</button>
+      </div>
+
+      <div id="rotation-root" hidden></div>
+    </section>
+
+    <!-- =========================== PLAN =========================== -->
+    <section class="view" id="view-plan" data-view="plan" aria-labelledby="plan-title" hidden>
+      <header class="view-head">
+        <div>
+          <p class="eyebrow" data-i18n="nav.plan">خطتي الزراعية</p>
+          <h1 id="plan-title" data-i18n="px.plan.title">خطتي الزراعية</h1>
+          <p class="lede" data-i18n="px.plan.lede">ملخص واحد لأرضك: المعلومات، المناخ، المحاصيل، مقارنة الدورات، وخطوات تعملها بعد كده. اطبعه أو احفظه وارجع له في أي وقت.</p>
+        </div>
+      </header>
+
+      <div class="farm-context" data-farm-context></div>
+
+      <div class="plan-toolbar">
+        <button class="btn btn-primary btn-large" id="plan-build" type="button" data-i18n="px.plan.generate">جهّز خطتي</button>
+        <button class="btn btn-ghost" id="plan-print" type="button" data-i18n="px.plan.print">اطبع / PDF</button>
+        <button class="btn btn-ghost" id="plan-save" type="button" data-i18n="px.plan.save">احفظ الخطة</button>
+        <span class="small muted" id="plan-status" aria-live="polite"></span>
+      </div>
+
+      <div class="empty-state" id="plan-empty">
+        <div class="empty-icon" aria-hidden="true">📋</div>
+        <h2 data-i18n="px.plan.needFarm">اختار أرض الأول عشان نجهّز خطتك.</h2>
+        <button class="btn btn-primary" type="button" data-go-view="farm" data-i18n="px.common.startHere">ابدأ من هنا</button>
+      </div>
+
+      <div id="plan-loading" class="surface-card inline-loading" hidden>
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p data-i18n="px.plan.generating">بنجهّز خطتك من بيانات NASA ومعلومات أرضك…</p>
+      </div>
+
+      <div id="plan-root"></div>
+
+      <section class="surface-card saved-plans">
+        <div class="section-head-inline">
+          <h2 data-i18n="px.plan.saved">الخطط المحفوظة</h2>
+          <span class="small muted" data-i18n="px.plan.saveHint">بتتحفظ على الجهاز وفي قاعدة البيانات المحلية، وتفضل متاحة بعد إغلاق المتصفح.</span>
+        </div>
+        <div id="plan-saved-list"></div>
+      </section>
+    </section>
+
+    <!-- =========================== HELP =========================== -->
+    <section class="view" id="view-help" data-view="help" aria-labelledby="help-title" hidden>
+      <header class="view-head">
+        <div>
+          <p class="eyebrow" data-i18n="nav.help">المساعدة ومصادر البيانات</p>
+          <h1 id="help-title" data-i18n="px.help.title">المساعدة ومصادر البيانات</h1>
+          <p class="lede" data-i18n="px.help.lede">شرح بسيط لكل خطوة، معنى المصطلحات، ومصادر البيانات الحقيقية المستخدمة. لو أنت متخصص، فيه قسم متقدم للمنهجية.</p>
+        </div>
+      </header>
+
+      <section class="help-block">
+        <h2 data-i18n="px.help.guides">إزاي تستخدم التطبيق</h2>
+        <div class="guide-grid">
+          <details class="guide-card" open>
+            <summary data-i18n="px.help.guide.farm.title">إزاي تسجّل أرضك؟</summary>
+            <p data-i18n="px.help.guide.farm.body">افتح «أرضي»، دوس على الخريطة عند مكان الأرض أو اختار المحافظة، اكتب اسم الأرض والمساحة لو تعرفهم، واملأ نوع التربة والري. أي حاجة مش متأكد منها سيبها فاضية واضغط حفظ. تقدر تضيف أكتر من أرض.</p>
+          </details>
+          <details class="guide-card">
+            <summary data-i18n="px.help.guide.location.title">إزاي تختار المكان صح؟</summary>
+            <p data-i18n="px.help.guide.location.body">أقرب نقطة ممكنة لوسط الأرض. بيانات NASA بتتجيب لخلية شبكة حوالي 0.5°، فالفروق الصغيرة مش هتغير النتيجة كتير. الإحداثيات اليدوية للمتخصصين فقط.</p>
+          </details>
+          <details class="guide-card">
+            <summary data-i18n="px.help.guide.soil.title">إزاي تدخل معلومات التربة؟</summary>
+            <p data-i18n="px.help.guide.soil.body">أفضل مصدر هو تحليل تربة من معمل أو مكتب إرشاد. لو ماعندكش تحليل، اختار «مش عارف» — التطبيق هيوضح إن المعلومة ناقصة. ملوحة التربة بتتقاس EC، ولازم تكون عارف وحدة التحليل.</p>
+          </details>
+          <details class="guide-card">
+            <summary data-i18n="px.help.guide.climate.title">إزاي تفهم بيانات المناخ؟</summary>
+            <p data-i18n="px.help.guide.climate.body">NASA POWER بيدي تقديرات يومية للحرارة والأمطار والشمس لخلية شبكة. إحنا بنعرض تاريخ الرصد، والتغطية، والأيام الناقصة. دي بيانات تاريخية حديثة، مش طقس مباشر ولا توقع.</p>
+          </details>
+          <details class="guide-card">
+            <summary data-i18n="px.help.guide.crops.title">إزاي تختار محصول؟</summary>
+            <p data-i18n="px.help.guide.crops.body">استخدم البحث والفلتر، وبص على الموسم واحتياج المياه وتحمّل الملوحة. درجة التوافق بتقارن الصفات الموثّقة مع معلومات أرضك. لو المعلومات ناقصة، هتظهر «معلومات غير كافية» بدل رقم مخمّن.</p>
+          </details>
+          <details class="guide-card">
+            <summary data-i18n="px.help.guide.rotation.title">إزاي تقارن الدورات؟</summary>
+            <p data-i18n="px.help.guide.rotation.body">اختار أولوياتك مثل توفير المياه أو تقليل الملوحة، واضغط «قارن الدورات». بتظهر درجة لكل دورة مع أسبابها، والمعلومات الناقصة، ونطاق الحساسية. جرّب تغيّر الأولويات وشوف الترتيب بيتغير إزاي.</p>
+          </details>
+          <details class="guide-card">
+            <summary data-i18n="px.help.guide.plan.title">إزاي تستخدم خطتي الزراعية؟</summary>
+            <p data-i18n="px.help.guide.plan.body">بعد ما تدخل الأرض والمناخ والمحاصيل، افتح «خطتي الزراعية» واضغط «جهّز خطتي». هتلاقي ملخص، وأهم الخطوات، وزرار الطباعة. احفظ الخطة عشان ترجع لها، واعمل تحديث لو البيانات قديمة.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="help-block">
+        <h2 data-i18n="px.glossary.title">مصطلحات زراعية بسيطة</h2>
+        <div class="glossary-grid">
+          <details class="glossary-card"><summary data-i18n="px.glossary.salinity.term">ملوحة التربة (Soil Salinity)</summary><p data-i18n="px.glossary.salinity.def"></p></details>
+          <details class="glossary-card"><summary data-i18n="px.glossary.moisture.term">رطوبة التربة (Soil Moisture)</summary><p data-i18n="px.glossary.moisture.def"></p></details>
+          <details class="glossary-card"><summary data-i18n="px.glossary.rotation.term">الدورة الزراعية (Crop Rotation)</summary><p data-i18n="px.glossary.rotation.def"></p></details>
+          <details class="glossary-card"><summary data-i18n="px.glossary.precipitation.term">الأمطار (Precipitation)</summary><p data-i18n="px.glossary.precipitation.def"></p></details>
+          <details class="glossary-card"><summary data-i18n="px.glossary.solar.term">الإشعاع الشمسي (Solar Radiation)</summary><p data-i18n="px.glossary.solar.def"></p></details>
+          <details class="glossary-card"><summary data-i18n="px.glossary.heat.term">إجهاد الحراري (Heat Stress)</summary><p data-i18n="px.glossary.heat.def"></p></details>
+          <details class="glossary-card"><summary data-i18n="px.glossary.ndvi.term">NDVI</summary><p data-i18n="px.glossary.ndvi.def"></p></details>
+          <details class="glossary-card"><summary data-i18n="px.glossary.uncertainty.term">عدم اليقين (Data Uncertainty)</summary><p data-i18n="px.glossary.uncertainty.def"></p></details>
+        </div>
+      </section>
+
+      <section class="help-block">
+        <h2 data-i18n="px.sources.title">مصادر البيانات المستخدمة فعليًا</h2>
+        <p class="section-hint" data-i18n="px.sources.lede">كل مصدر هنا مستخدم في التطبيق. بنفرّق بين قياس/تقدير NASA، ومعلومات المستخدم، والمؤشرات المحسوبة بقواعد.</p>
+        <p class="small muted" id="sources-live-note" data-i18n="px.sources.latestLive">شغّل تحليل للأرض عشان يظهر آخر رصد وجلب حقيقي.</p>
+        <div class="table-wrap">
+          <table class="data-table sources-table">
+            <thead>
+              <tr>
+                <th data-i18n="px.sources.col.source">المصدر</th>
+                <th data-i18n="px.sources.col.variables">المتغيرات / المعلومات</th>
+                <th data-i18n="px.sources.col.coverage">التغطية</th>
+                <th data-i18n="px.sources.col.latest">آخر رصد / جلب</th>
+                <th data-i18n="px.sources.col.limits">الحدود</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong data-i18n="px.sources.power.name">NASA POWER — Daily Point API</strong><br><a href="https://power.larc.nasa.gov/" target="_blank" rel="noopener noreferrer">power.larc.nasa.gov ↗</a></td>
+                <td data-i18n="px.sources.power.variables">T2M, T2M_MAX, T2M_MIN, PRECTOTCORR, ALLSKY_SFC_SW_DWN, RH2M, WS2M, GWETROOT</td>
+                <td data-i18n="px.sources.power.coverage">0.5° × 0.5° شبكة · من 1981 لنحو الآن</td>
+                <td id="source-power-latest">—</td>
+                <td data-i18n="px.sources.power.limits">تقدير شبكة، تأخر أيام، ومش قياس في الأرض.</td>
+              </tr>
+              <tr>
+                <td><strong data-i18n="px.sources.gibs.name">NASA GIBS — imagery</strong><br><a href="https://nasa-gibs.github.io/gibs-api-docs/" target="_blank" rel="noopener noreferrer">GIBS API docs ↗</a></td>
+                <td data-i18n="px.sources.gibs.variables">SMAP soil moisture, GPM IMERG precipitation, MODIS NDVI previews</td>
+                <td data-i18n="px.sources.gibs.coverage">صور جاهزة عالمية حسب الطبقة</td>
+                <td id="source-gibs-latest">—</td>
+                <td data-i18n="px.sources.gibs.limits">صورة للسياق، وليست قيمة قياس. ممكن تكون فاضية لو المعالجة متأخرة.</td>
+              </tr>
+              <tr>
+                <td><strong data-i18n="px.sources.cmr.name">NASA CMR — granule metadata</strong><br><a href="https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html" target="_blank" rel="noopener noreferrer">CMR API docs ↗</a></td>
+                <td data-i18n="px.sources.cmr.variables">توفر الحبيبات وأسماؤها وتواريخها</td>
+                <td data-i18n="px.sources.cmr.coverage">فهارس منتجات SMAP / GPM / MODIS</td>
+                <td id="source-cmr-latest">—</td>
+                <td data-i18n="px.sources.cmr.limits">Metadata مش قياس؛ القيم الرقمية تحتاج Earthdata Login.</td>
+              </tr>
+              <tr>
+                <td><strong data-i18n="px.sources.crops.name">FAO references — crop traits</strong><br><a href="https://www.fao.org/3/x0490e/x0490e00.htm" target="_blank" rel="noopener noreferrer">FAO 56 ↗</a> · <a href="https://ecocrop.fao.org/" target="_blank" rel="noopener noreferrer">EcoCrop ↗</a></td>
+                <td data-i18n="px.sources.crops.variables">احتياجات المياه، تحمّل الملوحة والحرارة، مواسم الزراعة</td>
+                <td data-i18n="px.sources.crops.coverage">22 محصول مصري مرجعي</td>
+                <td id="source-crops-latest">2026-11-12</td>
+                <td data-i18n="px.sources.crops.limits">نطاقات مرجعية مش خاصة بصنف أو حقل.</td>
+              </tr>
+              <tr>
+                <td><strong data-i18n="px.sources.egypt.name">Egypt agricultural reference</strong></td>
+                <td data-i18n="px.sources.egypt.variables">وصف المحافظات والمحاصيل السائدة والسياق المائي</td>
+                <td data-i18n="px.sources.egypt.coverage">27 محافظة</td>
+                <td id="source-egypt-latest">2026-11-12</td>
+                <td data-i18n="px.sources.egypt.limits">تجميع إقليمي عام، مش تحليل تربة.</td>
+              </tr>
+              <tr>
+                <td><strong data-i18n="px.sources.boundaries.name">geoBoundaries — governorate polygons</strong><br><a href="https://www.geoboundaries.org/" target="_blank" rel="noopener noreferrer">geoBoundaries ↗</a></td>
+                <td data-i18n="px.sources.boundaries.variables">حدود المحافظات للتحقق من النقطة</td>
+                <td data-i18n="px.sources.boundaries.coverage">مصر</td>
+                <td>—</td>
+                <td data-i18n="px.sources.boundaries.limits">دقة الحدود مناسبة للسياق، مش للمسح العقاري.</td>
+              </tr>
+              <tr>
+                <td><strong data-i18n="px.sources.osm.name">OpenStreetMap — basemap</strong><br><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OSM copyright ↗</a></td>
+                <td data-i18n="px.sources.osm.variables">بلاطات الخريطة</td>
+                <td data-i18n="px.sources.osm.coverage">عالمي</td>
+                <td>—</td>
+                <td data-i18n="px.sources.osm.limits">محتاج إنترنت؛ حدود المحافظات لسه شغالة لو البلاطات وقعت.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="provenance-grid">
+          <div class="provenance-item"><span class="provenance-tag tag-nasa" data-i18n="px.common.fromNasa">من NASA</span><p data-i18n="px.sources.provenance.measured">قياس/تقدير NASA: بيانات NASA POWER وGIBS وCMR.</p></div>
+          <div class="provenance-item"><span class="provenance-tag tag-user" data-i18n="px.common.youEntered">أنت أدخلتها</span><p data-i18n="px.sources.provenance.user">إدخال المستخدم: الاسم، المساحة، التربة، الملوحة، الري، المحاصيل.</p></div>
+          <div class="provenance-item"><span class="provenance-tag tag-calc" data-i18n="px.common.calculated">محسوبة بقواعد واضحة</span><p data-i18n="px.sources.provenance.calculated">محسوب بقواعد: الإشارات المناخية، التوافق، درجات الدورات، نطاق الحساسية.</p></div>
+        </div>
+        <p class="small muted" data-i18n="px.sources.provenance.none">مفيش اختراع لقيم ناقصة: أي قيمة مش معروفة بتظهر كـ null / غير متوفرة.</p>
+      </section>
+
+      <section class="help-block">
+        <h2 data-i18n="px.method.title">المنهجية العلمية (للمتخصصين)</h2>
+        <div class="method-grid">
+          <details class="method-card" open><summary data-i18n="px.method.climate.title">معالجة بيانات المناخ</summary><p data-i18n="px.method.climate.body"></p></details>
+          <details class="method-card"><summary data-i18n="px.method.compat.title">توافق المحاصيل</summary><p data-i18n="px.method.compat.body"></p></details>
+          <details class="method-card"><summary data-i18n="px.method.rotation.title">حساب الدورات والأوزان</summary><p data-i18n="px.method.rotation.body"></p></details>
+          <details class="method-card"><summary data-i18n="px.method.uncertainty.title">عدم اليقين</summary><p data-i18n="px.method.uncertainty.body"></p></details>
+          <details class="method-card"><summary data-i18n="px.method.limits.title">الحدود الحالية</summary><p data-i18n="px.method.limits.body"></p></details>
+        </div>
+      </section>
+
+      <section class="help-block">
+        <h2 data-i18n="px.ai.title">الشفافية بخصوص الذكاء الاصطناعي</h2>
+        <p data-i18n="px.ai.body"></p>
+        <h3 data-i18n="px.help.about.title">عن التطبيق</h3>
+        <p data-i18n="px.help.about.body"></p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <p class="footer-brand"><span data-i18n="brand.name">فيلد شيفت</span> <span data-i18n="brand.country">مصر</span></p>
+      <p data-i18n="px.footer.challenge">NASA Space Apps Challenge 2026 · Field Shift</p>
+    </div>
+    <p class="footer-disclaimer" data-i18n="px.footer.independent">نموذج مستقل · NASA مش بتعتمد التطبيق أو توصياته.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="/static/vendor/leaflet/leaflet.js"></script>
+  <script src="/static/vendor/chartjs/chart.umd.min.js"></script>
+  <script src="/static/js/i18n.js"></script>
+  <script src="/static/js/platform/store.js"></script>
+  <script src="/static/js/platform/ui.js"></script>
+  <script src="/static/js/platform/farm.js"></script>
+  <script src="/static/js/platform/climate.js"></script>
+  <script src="/static/js/platform/crops.js"></script>
+  <script src="/static/js/platform/rotation.js"></script>
+  <script src="/static/js/platform/plan.js"></script>
+  <script src="/static/js/platform/app.js"></script>
+</body>
+</html>

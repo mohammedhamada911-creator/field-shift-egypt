@@ -1,0 +1,77 @@
+Field Shift Egypt — final verification evidence
+Date: 2026-11-12
+Environment: Python 3.14.8, Flask 3.1.3, pytest 9.2.0, Playwright 1.65.0 (Chromium headless)
+
+1) Deterministic unit/API suite
+Command:
+  .venv/bin/pytest -q -m "not live"
+Result:
+  103 passed, 11 deselected in 0.64s
+
+Coverage includes: NASA POWER parsing and real-data fixture, fill/missing handling (never zero),
+date normalization, unit conversions, cache hit/miss/expiry/refresh, SQLite persistence and
+provenance, invalid coordinates, timeouts, upstream 502/404 paths, all 27 governorates,
+polygon-based Egypt detection, satellite metadata/validation, soil interpretation, farm profiles,
+rotation weights/scenarios/salinity/water/climate/missing-input uncertainty, rotation decision
+briefing and risk flags, rotation API errors, climate-risk threshold boundaries, partial-series
+handling and missing-data exclusion.
+
+New in this cycle:
+  - tests/test_indicators.py: 7 deterministic threshold, count, coverage, severity and
+    missing-data tests for the calculated climate-risk screen.
+  - tests/test_rotation.py: decision-brief leader/runner gap, band separation, strongest/weakest
+    factors, next-check selection and low-factor risk-flag consistency.
+  - tests/test_api.py: the POWER endpoint must return five risk signals on both a fresh and a
+    SQLite-cached response, and the rotation endpoint must return a briefing and per-scenario
+    risk flags.
+
+2) Live NASA integration suite
+Command:
+  .venv/bin/pytest -m live -s
+Result:
+  11 passed, 103 deselected in 14.20s
+
+Evidence:
+  - NASA POWER real data for Sohag, Alexandria and Aswan; latest observation 2026-11-08.
+  - Multi-governorate POWER retrieval succeeded and returned valid cells.
+  - Live rotation scoring used a real NASA POWER climate context (52 heat days >=35 C,
+    0.03 mm rain over the 90-day Sohag window in the recorded run).
+  - NASA GIBS returned PNG previews for SMAP, GPM IMERG and MODIS.
+  - NASA CMR returned recent granule metadata for all three products.
+  - Quantitative satellite access remains explicitly unavailable: Earthdata Login required;
+    no values are fabricated.
+
+3) Browser acceptance workflow
+Command:
+  .venv/bin/python scripts/browser_check.py
+Result:
+  PASS
+
+Evidence:
+  - Climate risk screen: overall badge "High overall", 5/5 signal cards, high screening
+    confidence at 94.9% coverage. Heat stress 52 days >=35 C (18 days >=40 C); dry spell
+    86/86 days <1 mm; heavy rain 0; strong wind 0; low humidity 5/86. Each card exposes its
+    threshold, method, source and caveat; the panel states that this is not a forecast.
+  - Crop browser: 22 crops loaded, 4 cycle filters (Winter 9, Summer 8, Perennial 5), summer
+    filter narrowed the list to 8, search for "rice" returned exactly one crop, selecting it
+    rendered 4 trait bars, a 12-cell calendar with planting/harvest months and reference caveats.
+  - Rotation decision brief: +7.2-point leader gap, partly overlapping sensitivity bands,
+    strongest factor (water balance, 25 pts at 100/100) and weakest factor (soil protection,
+    4.7 pts at 31/100), explicit next checks and a "not a statistical confidence interval" note.
+    Scenario risk chips rendered (e.g. salinity mismatch, low soil cover, narrow rotation).
+  - Phase 1: 3 functional charts, 8 provenance rows, latest observation shown, no error banner.
+  - Phase 3: 3 satellite cards, 3/3 GIBS images loaded, 3/3 CMR metadata, 0/3 quantitative enabled.
+  - Phase 4: map click resolved to New Valley Governorate; Aswan jump loaded reference context;
+    reset returned to Sohag; soil classes rendered; farm profile saved to SQLite.
+  - Phase 5/6: 4 rotation scenarios, 5 weight controls, 20 factor rows, factor methods/sources
+    expanded, weights normalised (salinity 0, water ~47.6), mobile overflow 0 px.
+  - End-to-end: Aswan selected in Climate, POWER loaded, charts retained data, Farm map followed
+    the Aswan point, Rotation used an Aswan NASA climate context and correctly refused to apply
+    the Sohag farm soil profile (coordinate mismatch).
+  - console_errors: []
+  - page_errors: []
+
+Machine-readable evidence: evidence/browser-check.json
+Screenshots: evidence/phase1-*.png, phase3-*.png, phase4-*.png, phase5-*.png, phase6-*.png,
+             evidence/enhancement-climate-risk.png, enhancement-rotation-brief.png,
+             enhancement-crop-browser.png

@@ -1,0 +1,81 @@
+{
+  "page": {
+    "latest": "08 Nov 2026",
+    "completeness": "94.9%",
+    "temp": "28.5",
+    "rain": "0.03",
+    "solar": "23.04",
+    "gaps": "5.1",
+    "qualityRows": 8,
+    "source": "NASA POWER \u2014 Daily Point API (Agroclimatology)",
+    "period": "15 Aug 2026 \u2192 08 Nov 2026",
+    "errorVisible": false,
+    "risk": {
+      "badge": "High overall",
+      "confidence": "high screening confidence \u00b7 94.9% data coverage",
+      "cards": [
+        {
+          "title": "Heat stress",
+          "severity": "High",
+          "value": "52days \u2265 35 \u00b0C",
+          "observed": "52 of 86 valid days (60%) reached at least 35 \u00b0C; 18 reached at least 40 \u00b0C.",
+          "threshold": "Threshold: High: \u226530% of valid days reach 35 \u00b0C, or \u22653 days reach 40 \u00b0C. Watch: \u226510% of days reach 35 \u00b0C, or \u22651 day reaches 40 \u00b0C."
+        },
+        {
+          "title": "Dry spell",
+          "severity": "High",
+          "value": "86days < 1 mm",
+          "observed": "86 of 86 valid days (100%) had less than 1 mm of precipitation.",
+          "threshold": "Threshold: High: \u226590% of valid days below 1 mm (with at least 7 days), or a run of \u226530 days. Watch: \u226560% of days, or a run of \u226514 days."
+        },
+        {
+          "title": "Heavy-rain days",
+          "severity": "Low",
+          "value": "0days \u2265 10 mm",
+          "observed": "0 of 86 valid days reached at least 10 mm; the largest daily total was 0.0 mm on 02 Oct 2026.",
+          "threshold": "Threshold: High: \u22653 days at or above 10 mm. Watch: \u22651 such day."
+        },
+        {
+          "title": "Strong-wind days",
+          "severity": "Low",
+          "value": "0days \u2265 6 m/s",
+          "observed": "0 of 86 valid days (0%) reached at least 6 m/s (about 22 km/h) at 2 m.",
+          "threshold": "Threshold: High: \u226520% of valid days. Watch: \u22655% of valid days."
+        },
+        {
+          "title": "Low-humidity days",
+          "severity": "Low",
+          "value": "5days < 20%",
+          "observed": "5 of 86 valid days (6%) had mean relative humidity below 20%.",
+          "threshold": "Threshold: High: \u226530% of valid days. Watch: \u226510% of valid days."
+        }
+      ],
+      "note": "HIGH: Heat stress, Dry spell. Calculated from 90 requested day(s), not a forecast. Calculated screening indicator, not an official alert, forecast or agronomic recommendation. Confirm decisions with local extension advice and field checks."
+    },
+    "charts": [
+      {
+        "id": "chart-temperature",
+        "exists": true,
+        "hasChart": true,
+        "datasets": 3,
+        "points": 270
+      },
+      {
+        "id": "chart-water",
+        "exists": true,
+        "hasChart": true,
+        "datasets": 2,
+        "points": 180
+      },
+      {
+        "id": "chart-soil",
+        "exists": true,
+        "hasChart": true,
+        "datasets": 2,
+        "points": 180
+      }
+    ]
+  },
+  "console_errors": [],
+  "page_errors": []
+}

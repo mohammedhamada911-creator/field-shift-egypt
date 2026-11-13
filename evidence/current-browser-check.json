@@ -1,0 +1,40 @@
+{
+  "url": "http://127.0.0.1:8000/",
+  "views": [
+    {
+      "name": "farm",
+      "developerCredit": true
+    },
+    {
+      "name": "climate",
+      "developerCredit": true
+    },
+    {
+      "name": "crops",
+      "developerCredit": true
+    },
+    {
+      "name": "rotation",
+      "developerCredit": true
+    },
+    {
+      "name": "plan",
+      "developerCredit": true
+    },
+    {
+      "name": "help",
+      "developerCredit": true
+    }
+  ],
+  "languages": {
+    "ar": "أرضي",
+    "en": "My Farm"
+  },
+  "mobile": {
+    "viewportWidth": 390,
+    "documentWidth": 390,
+    "horizontalOverflow": false
+  },
+  "pageErrors": [],
+  "status": "passed"
+}
